@@ -12,9 +12,10 @@ class Solution(object):
             if str in search_dict.values():
                 stack.append(str)
                 continue
-            if stack and search_dict.get(str) == stack[-1]:
-                stack.pop()
             else:
-                return False
-        return len(stack) == 0
+                if stack and search_dict.get(str) == stack[-1]:
+                    stack.pop()
+                else:
+                    return False
+        return not stack
             
